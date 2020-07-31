@@ -30,13 +30,15 @@ describe('Visit fabelio website', function() {
         cy.get('.jss35 > .MuiButtonBase-root > .MuiIconButton-label > .MuiSvgIcon-root').click()
         
         //Step for input text
-        cy.get('.MuiInputBase-input').type(data.product) //change to "data.product2" for -Kursi Kantor Alpha-
+        //change to "data.product2" for -Kursi Kantor Alpha- || "data.product" for -cessi-
+        cy.get('.MuiInputBase-input').type(data.product2) 
         cy.wait(3600)
 
         //Step click item that has been search & verify text
-        //cy.get(':nth-child(6) > a > .jss30').click()
-        cy.contains(data.productname).click({force: true}) //change to "data.product2" for -Kursi Kantor Alpha-
-        cy.contains(data.productname) //change to "data.product2" for -Kursi Kantor Alpha-
+        //change to "data.product2" for -Kursi Kantor Alpha- || "data.productname" for -cessi-
+        cy.contains(data.product2).click({force: true})
+        //change to "data.product2" for -Kursi Kantor Alpha- || "data.productname" for -cessi-
+        cy.contains(data.product2)
 
         //Step to add cart
         cy.wait(3600)
@@ -45,11 +47,11 @@ describe('Visit fabelio website', function() {
 
         //Step to check troli & verify product on troli
         cy.wait(3600)
-        cy.get('.css-yms14p > .MuiGrid-container').contains(data.productname) //change to "data.product2" for -Kursi Kantor Alpha-
+        //change to "data.product2" for -Kursi Kantor Alpha- || "data.productname" for -cessi-
+        cy.get('.css-yms14p > .MuiGrid-container').contains(data.product2)
         cy.get('.css-yms14p > .MuiGrid-container').contains('telah ditambahkan ke troli')
     })
 })
-
 
 // CSVToJson
 // const CSVToJSON = require("../node_modules/csvtojson")
