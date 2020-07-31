@@ -31,24 +31,25 @@ describe('Visit fabelio website', function() {
         
         //Step for input text
         //change to "data.product2" for -Kursi Kantor Alpha- || "data.product" for -cessi-
-        cy.get('.MuiInputBase-input').type(data.product2) 
+        cy.get('.MuiInputBase-input').type(data.product) 
         cy.wait(3600)
 
         //Step click item that has been search & verify text
         //change to "data.product2" for -Kursi Kantor Alpha- || "data.productname" for -cessi-
-        cy.contains(data.product2).click({force: true})
+        cy.contains(data.productname).click({force: true})
         //change to "data.product2" for -Kursi Kantor Alpha- || "data.productname" for -cessi-
-        cy.contains(data.product2)
+        cy.contains(data.productname)
 
         //Step to add cart
         cy.wait(3600)
         cy.get('#addToCart').contains("TAMBAH KE TROLI")
+        cy.wait(500)
         cy.get('#addToCart > .MuiButton-label').click({force: true})
 
         //Step to check troli & verify product on troli
         cy.wait(3600)
         //change to "data.product2" for -Kursi Kantor Alpha- || "data.productname" for -cessi-
-        cy.get('.css-yms14p > .MuiGrid-container').contains(data.product2)
+        cy.get('.css-yms14p > .MuiGrid-container').contains(data.productname)
         cy.get('.css-yms14p > .MuiGrid-container').contains('telah ditambahkan ke troli')
     })
 })
