@@ -23,13 +23,13 @@ var data = require('../fixtures/test_data.json')
 describe('Visit fabelio website', function() {
 
     it('Checkout purchase on fabelio website', () => {
-        //Step visit link fabelio
+        //========Step visit link fabelio========
         cy.visit('https://qa.fabelio.com/')
         
-        //Step for click search icon
+        //========Step for click search icon========
         cy.get('.jss35 > .MuiButtonBase-root > .MuiIconButton-label > .MuiSvgIcon-root').click()
         
-        //Step for input text
+        //========Step for input text========
         //change to "data.product2" for -Kursi Kantor Alpha- || "data.product" for -cessi-
         cy.get('.MuiInputBase-input').type(data.product) 
         cy.wait(3600)
@@ -40,13 +40,13 @@ describe('Visit fabelio website', function() {
         //change to "data.product2" for -Kursi Kantor Alpha- || "data.productname" for -cessi-
         cy.contains(data.productname)
 
-        //Step to add cart
-        cy.wait(3600)
+        //========Step to add cart========
+        cy.wait(5000)
         cy.get('#addToCart').contains("TAMBAH KE TROLI")
         cy.wait(500)
         cy.get('#addToCart > .MuiButton-label').click({force: true})
 
-        //Step to check troli & verify product on troli
+        //========Step to check troli & verify product on troli========
         cy.wait(3600)
         //change to "data.product2" for -Kursi Kantor Alpha- || "data.productname" for -cessi-
         cy.get('.css-yms14p > .MuiGrid-container').contains(data.productname)
